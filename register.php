@@ -39,8 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $passwordErr = "Password is required";
     }
 
-    // Check if email is unique (you should check against a database)
-    // Example: Assuming $db is your database connection
     $query = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($db, $query);
     if (mysqli_num_rows($result) > 0) {
@@ -48,35 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Handle image upload
-    $targetDir = "uploads/";  // Set your desired upload directory
+    $targetDir = "uploads/"; 
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-    if (!empty($_FILES["image"]["tmp_name"])) {
-        // Check if the uploaded file is an image
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
-        if ($check === false) {
-            $imageErr = "File is not an image.";
-        }
-
-        // Check file size
-        elseif ($_FILES["image"]["size"] > 500000) {
-            $imageErr = "Sorry, your file is too large.";
-        }
-
-        // Allow only certain file formats
-        elseif ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-            $imageErr = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        }
-
-        // If there are no errors, move the uploaded file to the desired directory
-        elseif (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-            // File uploaded successfully
-            // You can save the file path in the database if needed
-        } else {
-            $imageErr = "Sorry, there was an error uploading your file.";
-        }
-    }
 
     // If there are no validation errors, proceed with registration
     if (empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($passwordErr) && empty($imageErr)) {
@@ -106,10 +79,10 @@ function test_input($data)
 }
 ?>
 
-<!-- Your Registration Form Here -->
+
 <h2>Register</h2>
 <form method="post" action="register.php" enctype="multipart/form-data">
-    <!-- Your registration form fields here -->
+    
     <input type="text" name="name" value="<?php echo $name; ?>" placeholder="Name">
     <span class="error"><?php echo $nameErr; ?></span>
     <br>
