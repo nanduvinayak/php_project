@@ -10,7 +10,7 @@
 
 <!-- Header Section -->
 <header>
-    <!-- Your Logo Goes Here -->
+
     <img src="./img/logo.png" alt="Your Logo">
     <h1>underwood</h1>
 
