@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>     
 <body>
-
-
 <!-- Header Section -->
 <header>
-
     <img src="./img/logo.png" alt="Your Logo">
     <h1>underwood</h1>
 
@@ -23,9 +20,6 @@
     </ul>
 </nav>
 </header>
-
-
-
     
 </body>
 </html>
