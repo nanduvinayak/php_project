@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<!-- Your Home Page Content Here -->
+
 <h2>Login to your account</h2>
 
 <!-- Login Form -->
