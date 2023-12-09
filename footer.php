@@ -2,7 +2,7 @@
 <footer>
     <div >
         
-        &copy; <?php echo date("Y"); ?> Your Website Name. All Rights Reserved.
+        &copy; <?php echo date("Y"); ?> Underwood. All Rights Reserved.
     </div>
 </footer>
 </body>
