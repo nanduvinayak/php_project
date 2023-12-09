@@ -3,8 +3,8 @@
 // Handle logout
 if (isset($_POST['logout'])) {
     session_start();
-    session_unset(); // Unset all session variables
-    session_destroy(); // Destroy the session
+    session_unset(); 
+    session_destroy(); 
     header("Location: index.php"); // Redirect to the home page or login page
     exit();
 }
@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Get the user ID of the logged-in user
+
 $user_id = $_SESSION['user_id'];
 
 // Retrieve and display user data from the database
@@ -29,7 +29,7 @@ $result = mysqli_query($db, $query);
 if ($result) {
     $user = mysqli_fetch_assoc($result);
 
-    // Handle email update form submission
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $newEmail = mysqli_real_escape_string($db, $_POST['new_email']);
 
@@ -38,7 +38,7 @@ if ($result) {
         $updateEmailResult = mysqli_query($db, $updateEmailQuery);
 
         if ($updateEmailResult) {
-            // Refresh user data after updating email
+      
             $result = mysqli_query($db, $query);
             $user = mysqli_fetch_assoc($result);
             echo '<p>Email updated successfully!</p>';
